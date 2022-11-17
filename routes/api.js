@@ -3,27 +3,21 @@ const router = express.Router();
 const job = require('../controllers/job.controller');
 
 //endpoint to fetch all existing Jobs
-router.get('/jobs', function (req, res) {
-    job.findAll(req, res);
-});
+router.get('/jobs', job.findAll);
+
 //endpoint to create Jobs
-router.post('/create/job', function (req, res) {
-    job.create(req, res);
-});
+router.post('/create/job', job.create);
+
 //endpoint to update Jobs
-router.put('/update/job/:id', function (req, res) {
-    job.updateById(req, res);
-});
+router.put('/update/job/:id', job.updateById);
+
 //endpoint to archive a job
-router.put('/archive/job/:id', function (req, res) {
-    job.archiveById(req, res);
-});
+router.put('/archive/job/:id', job.archiveById);
+
 //endpoint to updates status' jobs
-router.put('/status/:id/:status', function (req, res) {
-    job.updateStatus(req, res);
-});
+router.put('/status/:id/:status', job.updateStatus);
+
 //endpoint to delete Jobs
-router.delete('/delete/job/:id', function (req, res) {
-    job.deleteById(req, res);
-});
+router.delete('/delete/job/:id', job.deleteById);
+
 module.exports = router;
